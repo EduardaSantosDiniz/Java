@@ -1,8 +1,9 @@
-package Java.teste;
-
-    import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 class Livro {
     private String titulo;
@@ -36,50 +37,68 @@ class Biblioteca {
 
     public void adicionarLivro(Livro livro) {
         acervo.add(livro);
-        System.out.println("Livro adicionado com sucesso!");
     }
 
-    public void listarLivros() {
-        System.out.println("Lista de Livros na Biblioteca:");
-        for (Livro livro : acervo) {
-            System.out.println(livro);
-        }
+    public List<Livro> listarLivros() {
+        return acervo;
     }
 }
 
-public class armazenamento {
-    public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca();
-        Scanner scanner = new Scanner(System.in);
+public class SistemaBibliotecaGUI {
+    private Biblioteca biblioteca;
+    private JFrame frame;
+    private DefaultListModel<String> listModel;
+    private JList<String> livroList;
 
-        while (true) {
-            System.out.println("\nEscolha uma opção:");
-            System.out.println("1. Adicionar Livro");
-            System.out.println("2. Listar Livros");
-            System.out.println("3. Sair");
-            int escolha = scanner.nextInt();
+    public SistemaBibliotecaGUI() {
+        biblioteca = new Biblioteca();
+        frame = new JFrame("Sistema de Gerenciamento de Biblioteca");
+        listModel = new DefaultListModel<>();
+        livroList = new JList<>(listModel);
 
-            switch (escolha) {
-                case 1:
-                    scanner.nextLine(); // Limpar o buffer do teclado
-                    System.out.print("Título do Livro: ");
-                    String titulo = scanner.nextLine();
-                    System.out.print("Autor do Livro: ");
-                    String autor = scanner.nextLine();
-                    Livro livro = new Livro(titulo, autor);
-                    biblioteca.adicionarLivro(livro);
-                    break;
-                case 2:
-                    biblioteca.listarLivros();
-                    break;
-                case 3:
-                    scanner.close();
-                    System.exit(0);
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
+        criarJanela();
+    }
+
+    private void criarJanela() {
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+
+        JPanel painel = new JPanel(new BorderLayout());
+        frame.add(painel);
+
+        JPanel botaoPainel = new JPanel();
+        JButton adicionarBotao = new JButton("Adicionar Livro");
+        botaoPainel.add(adicionarBotao);
+        painel.add(botaoPainel, BorderLayout.NORTH);
+
+        adicionarBotao.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                adicionarLivro();
             }
+        });
+
+        JScrollPane listaScrollPane = new JScrollPane(livroList);
+        painel.add(listaScrollPane, BorderLayout.CENTER);
+
+        frame.setVisible(true);
+    }
+
+    private void adicionarLivro() {
+        String titulo = JOptionPane.showInputDialog("Título do Livro:");
+        String autor = JOptionPane.showInputDialog("Autor do Livro:");
+
+        if (titulo != null && autor != null) {
+            Livro livro = new Livro(titulo, autor);
+            biblioteca.adicionarLivro(livro);
+            listModel.addElement(livro.toString());
         }
     }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new SistemaBibliotecaGUI();
+            }
+        });
+    }
 }
-
-
