@@ -19,6 +19,9 @@ public class form{
 
           // Layout do painel (GridLayout com 7 linhas e 2 colunas)
           painel.setLayout(new GridLayout(7, 2));
+
+            // Rótulos
+            
     }
 }
 
