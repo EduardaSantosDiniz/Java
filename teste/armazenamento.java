@@ -1,6 +1,5 @@
 package Java.teste;
 
-public class armazenamento {
     import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -48,7 +47,7 @@ class Biblioteca {
     }
 }
 
-public class SistemaBiblioteca {
+public class armazenamento {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
         Scanner scanner = new Scanner(System.in);
@@ -83,4 +82,4 @@ public class SistemaBiblioteca {
     }
 }
 
-}
+
