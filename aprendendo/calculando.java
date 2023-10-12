@@ -17,7 +17,7 @@ public class calculando {
 
         int resultado = numero1 + numero2;
 
-        System.out.println("O resultao é "+resultado);
+        System.out.println("O resultado é "+resultado);
 
         escaneador.close();
 
