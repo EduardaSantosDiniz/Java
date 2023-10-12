@@ -9,18 +9,19 @@ public class Form{
     System.out.println("Nome: ");
     String nome = escaneador.nextLine();
 
-    System.out.println("Idade: ")
-    Int idade = escaneador.nextInt();
+    System.out.println("Idade: ");
+    int idade = escaneador.nextInt();
+    escaneador.nextLine();
 
-    System.out.println("Email: ")
-    String email = escaneador.next.Line();
+    System.out.println("Email: ");
+    String email = escaneador.nextLine();
 
     escaneador.close();
 
 
-    System.out.println("Nome "+nome);
-    System.out.println("Idade "+idade);
-     System.out.println("Email "+email);
+    System.out.println("Nome: "+nome);
+    System.out.println("Idade: "+idade);
+     System.out.println("Email: "+email);
 
 
 
