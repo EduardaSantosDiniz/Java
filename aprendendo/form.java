@@ -10,8 +10,8 @@ public class Form{
     String nome = escaneador.nextLine();
 
     System.out.println("Idade: ");
-    int idade = escaneador.nextInt();
-    escaneador.nextLine();
+    String idade = escaneador.nextLine();
+    
 
     System.out.println("Email: ");
     String email = escaneador.nextLine();
