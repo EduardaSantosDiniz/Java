@@ -1,6 +1,6 @@
 import java.util.Scanner; // Importa a classe Scanner do pacote java.util.
 
-public class ReservaDeQuarto { // Declara a classe ReservaDeQuarto.
+public class ReservaFacil { // Declara a classe ReservaDeQuarto.
     public static void main(String[] args) { // Inicia o método principal.
         // Inicialização dos quartos
         boolean[] quartosDisponiveis = new boolean[5]; // Cria um array de boolean com 5 elementos para representar os quartos.
