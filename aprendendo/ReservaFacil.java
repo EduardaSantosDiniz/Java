@@ -28,7 +28,7 @@ public class ReservaFacil {
             int escolha = escanear.nextInt();
 
             if (escolha == 0){
-                System.out.println("Obrigado por usar nooso serviço de reserva!");
+                System.out.println("Obrigado p2or usar nooso serviço de reserva!");
                 break;
             }else if (escolha >= 1 && escolha <=5){
                 if(quartosDisponiveis[escolha - 1]){
@@ -39,13 +39,12 @@ public class ReservaFacil {
                     quartosDisponiveis[escolha - 1] =false;
 
                     System.out.println("\nQuarto " +escolha +" reservado para "+ nome +".");
-
+                    }
                 }else{
                     System.out.println("Escolha invalida, por favor escolha um numero valido");
                 }
-            }
-            escanear.close();
         }
+         escanear.close();
     
         
     }
